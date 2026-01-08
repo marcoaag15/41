@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Las 41 — MVP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: Arial, sans-serif; margin: 16px; }
+    #lobby, #game { margin-top: 12px; }
+    .card { display:inline-block; border:1px solid #333; padding:6px 10px; margin:6px; border-radius:6px; background:#fff; }
+    button { margin:4px; }
+  </style>
+</head>
+<body>
+  <h2>Las 41 — MVP</h2>
+  <div id="connect">
+    <input id="username" placeholder="Tu nombre" />
+    <button id="createRoomBtn">Crear sala</button>
+    <input id="roomIdInput" placeholder="room id" />
+    <button id="joinRoomBtn">Unirse a sala</button>
+  </div>
+
+  <div id="lobby" style="display:none;">
+    <h3>Lobby — Sala <span id="roomId"></span></h3>
+    <div>Jugadores:</div>
+    <ul id="playersList"></ul>
+    <div>
+      Max players: <input id="maxPlayers" type="number" min="2" max="10" value="4" />
+      <button id="addBotBtn">Añadir Bot</button>
+      <button id="startGameBtn">Start Game</button>
+    </div>
+  </div>
+
+  <div id="game" style="display:none;">
+    <h3>Game</h3>
+    <div><strong>Turno actual:</strong> <span id="turnInfo"></span></div>
+    <div id="publicState"></div>
+    <h4>Tu mano</h4>
+    <div id="hand"></div>
+    <h4>Registro</h4>
+    <div id="log"></div>
+    <button id="leaveBtn">Salir sala</button>
+  </div>
+
+  <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+  <script src="/static/client.js"></script>
+</body>
+</html>
